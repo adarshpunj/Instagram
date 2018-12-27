@@ -1,6 +1,4 @@
 #This code was written by Adarsh Punj in December 2018
-#follow_fans_of(page): string (Target Page username)
-#unfollow_users: int (Number of users to be unfollowed)
 #post() function is under development
 
 from selenium import webdriver
@@ -44,10 +42,7 @@ def login():
     pynotify("Instagram Bot","Logged into Instagram").push()
 
 def post():
-    driver.get("https://instagram.com/"+string().username)
-    driver.find_element_by_css_selector(
-    ".glyphsSpriteNew_post__outline__24__grey_9.u-__7").click().send_keys(
-    '/Users/adarshpunj/Desktop/post.png')
+    pynotify("Instagram Bot,"Post function is under development").push()
 
 def get_following_list():
     driver.get("https://www.instagram.com/"+string().username)
