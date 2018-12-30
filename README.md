@@ -5,6 +5,7 @@ A simple Instagram bot to for analysis, and minimising human work.
 > [`selenium`](https://www.seleniumhq.org/)
 
 ###### You would also need to have [pynotify](https://github.com/adarshpunj/pynotify).
+(You could also choose to remove any usage of pynotify in the program)
 
 #### How to run:
 ##### 1. Download the project.
