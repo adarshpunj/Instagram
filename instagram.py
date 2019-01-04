@@ -20,7 +20,7 @@ def sleep(x):
 def configure_environment():
     global driver
     options = Options()
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
     options.add_argument('--incognito')
     options.add_argument('disable-extensions')
     options.add_argument(string().user_agent)
