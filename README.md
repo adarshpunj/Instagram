@@ -1,5 +1,5 @@
 # Instagram
-A simple Instagram bot to for analysis, and minimising human work.
+A simple Instagram bot for analysis, and minimising human work.
 
 #### Depedencies:
 > [`selenium`](https://www.seleniumhq.org/)
