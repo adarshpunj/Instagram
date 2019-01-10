@@ -3,6 +3,7 @@ A simple Instagram bot to for analysis, and minimising human work.
 
 #### Depedencies:
 > [`selenium`](https://www.seleniumhq.org/)
+> [`requests`](http://docs.python-requests.org/en/master/)
 
 ###### You would also need to have [pynotify](https://github.com/adarshpunj/pynotify).
 (You could also choose to remove any usage of pynotify in the program)
