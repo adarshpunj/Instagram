@@ -169,3 +169,12 @@ def get_summary():
             pass
         else:
             print accounts
+             
+def withdraw_pending_requests():
+	current_follow_requests = retrieve_data_from_access_tool(
+    "current_follow_requests")
+	for account in current_follow_requests:
+		sleep(2)
+		driver.get("https://instagram/"+account)
+		driver.find_element_by_css_selector(".BY3EC _0mzm-.sqdOP.L3NKy _8A5w5").click()
+		driver.find_element_by_css_selector(".aOOlW.-Cab_").click()
