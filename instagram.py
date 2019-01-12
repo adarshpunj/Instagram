@@ -147,28 +147,62 @@ def get_summary():
     current_follow_requests = retrieve_data_from_access_tool(
     "current_follow_requests")
 
-    print "ACCOUNTS YOU FOLLOW: "+len(accounts_you_follow)
+    size = 0
+    print "ACCOUNTS YOU FOLLOW: "+str(len(accounts_you_follow))
     for accounts in accounts_you_follow:
         print accounts
+        size = size+1
+    print "TOTAL: "+str(size)
+    size = 0
 
     print '\n'
-    print "ACCOUNTS FOLLOWING YOU:"+len(accounts_following_you)
+    print "ACCOUNTS FOLLOWING YOU: "
     for accounts in accounts_following_you:
         print accounts
+        size = size+1
+    print "TOTAL: "+str(size)
+    size = 0
 
     print '\n'
     print "YOU BOTH FOLLOW EACH OTHER:"
-    for accounts in accounts_following_you and accounts_you_follow:
-        print accounts
+    for accounts in accounts_following_you:
+        if accounts in accounts_you_follow:
+            print accounts
+            size = size+1
+    print "TOTAL: "+str(size)
+    size = 0
 
     print '\n'
-    print "ACCOUNTS THAT ARE NOT FOLLOWING YOU:"
-
+    print "ACCOUNTS THAT ARE NOT FOLLOWING YOU: "
     for accounts in accounts_you_follow:
         if accounts in accounts_following_you:
             pass
         else:
             print accounts
+            size = size+1
+    print "TOTAL: "+str(size)
+    size = 0
+
+    print '\n'
+    print "CURRENT FOLLOW REQUESTS YOU HAVE MADE:"
+    for accounts in current_follow_requests:
+        print accounts
+        size=size+1
+    print "TOTAL: "+str(size)
+	     
+def unfollow_accounts_not_following():
+    accounts_you_follow = retrieve_data_from_access_tool(
+    "accounts_you_follow")
+    accounts_following_you = retrieve_data_from_access_tool(
+    "accounts_following_you")
+    for accounts in accounts_you_follow:
+        if accounts in accounts_following_you:
+            pass
+        else:
+            driver.get("https://instagram/"+account)
+            driver.find_element_by_css_selector(".BY3EC _0mzm-.sqdOP.L3NKy _8A5w5").click()
+            driver.find_element_by_css_selector(".aOOlW.-Cab_").click()
+        sleep(2)
              
 def withdraw_pending_requests():
 	current_follow_requests = retrieve_data_from_access_tool(
