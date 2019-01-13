@@ -68,6 +68,22 @@ def print_following_list():
     for i in range(0,len(users)):
         print users[i].get_attribute('title')
     print "TOTAL FOLLOWERS: "+str(len(users))
+	     
+def follow(account):
+   driver.get("https://instagram.com/"+account)
+   try:
+        driver.find_element_by_css_selector("._5f5mN.jIbKX._6VtSN.yZn4P").click()
+   except:
+        pynotify("INSTAGRAM BOT","You might be following @"+account)
+
+def unfollow(account):
+    driver.get("https://instagram.com/"+account)
+    driver.find_element_by_css_selector("._5f5mN.-fzfL._6VtSN.yZn4P").click()
+    try:
+        driver.find_element_by_css_selector(".aOOlW.-Cab_").click()
+    except:
+        pynotify("INSTAGRAM BOT","You probably weren't following @"+account)
+        driver.find_element_by_css_selector("._5f5mN.-fzfL._6VtSN.yZn4P").click()   
 
 def follow_fans_of(page):
     total_follows = 0
@@ -199,15 +215,11 @@ def unfollow_accounts_not_following():
         if accounts in accounts_following_you:
             pass
         else:
-            driver.get("https://instagram/"+account)
-            driver.find_element_by_css_selector(".BY3EC _0mzm-.sqdOP.L3NKy _8A5w5").click()
-            driver.find_element_by_css_selector(".aOOlW.-Cab_").click()
+            unfollow(account)
         sleep(2)
 	     
 def withdraw_pending_requests():
 	current_follow_requests = retrieve_data_from_access_tool("current_follow_requests")
 	for account in reversed(current_follow_requests):
 		sleep(2)
-		driver.get("https://instagram.com/"+account)
-		driver.find_element_by_css_selector(".BY3EC._0mzm-.sqdOP.L3NKy._8A5w5").click()
-		driver.find_element_by_css_selector(".aOOlW.-Cab_").click()
+		unfollow(account)
