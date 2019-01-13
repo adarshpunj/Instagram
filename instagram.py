@@ -44,7 +44,7 @@ def login():
 def post():
     pynotify("Instagram Bot,"Post function is under development").push()
 
-def get_following_list():
+def scroll_following_list():
     driver.get("https://www.instagram.com/"+string().username)
     following = driver.find_elements_by_css_selector(".-nal3")[2].click()
     sleep(5)
@@ -63,7 +63,7 @@ def get_following_list():
         ActionChains(driver).send_keys(Keys.DOWN).perform()
 
 def print_following_list():
-    get_following_list()
+    scroll_following_list()
     users = driver.find_elements_by_css_selector(".FPmhX.notranslate._0imsa")
     for i in range(0,len(users)):
         print users[i].get_attribute('title')
@@ -121,7 +121,7 @@ def follow_users():
         sleep(randint(30,40))
 
 def unfollow_users(limit):
-    get_following_list()
+    scroll_following_list()
     users_unfollowed = 0
     unfollow_button = driver.find_elements_by_css_selector("._0mzm-.sqdOP.L3NKy._8A5w5")
     sleep(3)
