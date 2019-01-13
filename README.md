@@ -17,9 +17,14 @@ A simple Instagram bot for analysis, and minimising human work.
 
 | Function | Description | Arguments |
 | :---         |     :---:      |          ---: |
-| `login()`   |Logs into instagram     |    |
-| `scroll_following_list()`     |Scrolls the following dialog till the end      |      |
+| `login()`   |Logs into instagram     |None|
+| `scroll_following_list()`     |Scrolls following dialog till the end      |None|
 | `follow()`   | Follows an Instagram account     | Username (string)|
 | `unfollow()`   | Unfollows an instagram account  |Username (string)  |
 | `follow_fans_of()`   | Follows accounts who recently liked a page's post     |Page username (string) |
-| `follow_users()`   | Picks up usernames from strings.py and calls `follow_fans_of()`|    |
+| `follow_users()`   | Picks up usernames from strings.py and calls `follow_fans_of()` for each username. Move on to next username in case of errors|None|
+| `unfollow_users()`   | Unfollows users|No. of users to be unfollowed (int) |
+| `retrieve_data_from_access_tool()`   | Returns requested account data | data_name (string)  |
+| `get_summary()`   |Prints stats of an account|None|
+| `unfollow_accounts_not_following()`   |Unfollows accounts that are not following the user|None|
+| `withdraw_pending_requests()`   |Cancel all the current follow requests|None|
