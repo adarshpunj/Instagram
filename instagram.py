@@ -49,6 +49,7 @@ def scroll_following_list():
     following = driver.find_elements_by_css_selector(".-nal3")[2].click()
     sleep(5)
     first_scroll_timeout = time.time()+5
+    #Increase total_scroll_timeout acccording to the number of accounts you follow. 	     
     total_scroll_timeout = time.time()+25
 
     driver.find_element_by_css_selector("._7UhW9.xLCgt.MMzan._0PwGv.fDxYl").click()
